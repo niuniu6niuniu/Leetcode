@@ -9,9 +9,20 @@
 # return [0, 1].
 
 
+# ========= 1
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         for i in range(len(nums)):
             for k in range(i+1, len(nums)):
                 if nums[i] + nums[k] == target:
                     return [i, k]
+
+
+# ========= 2
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        _dict = {}
+        for i, m in enumerate(nums):
+            if _dict.get(target - m) is not None:
+                return [_dict.get(target - m), i]
+            _dict[m] = i
