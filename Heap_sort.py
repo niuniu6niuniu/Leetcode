@@ -21,8 +21,7 @@ def heapify(arr, n, i):
 
     # Change root, if needed
     if largest != i:
-        arr[i] = arr[largest]
-        arr[largest] = arr[i]     # Swap
+        arr[i], arr[largest] = arr[largest], arr[i]     # Swap
 
         # Heapify the root
         heapify(arr, n, largest)
