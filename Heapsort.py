@@ -1,6 +1,6 @@
 # Heap Sort
 # Best case & Worst case: O(nlogn)
-# On average: O(nlogn)
+# Average case: O(nlogn)
 # Idea: Build max heap & Remove
 
 # Heapify
