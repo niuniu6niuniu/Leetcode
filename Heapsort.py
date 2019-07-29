@@ -1,10 +1,10 @@
 # Heap Sort
 # Best case & Worst case: O(nlogn)
 # On average: O(nlogn)
+# Idea: Build max heap & Remove
 
 # Heapify
 # Set root at index i, n is the size of heap
-
 
 def heapify(arr, n, i):
     largest = i       # Initialize largets as root
