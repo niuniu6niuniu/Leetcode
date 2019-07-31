@@ -2,16 +2,18 @@
 # Worst case: O(n.^2)
 # Average case: O(nlogn)
 
-# Idea: Recursively select a Pivot, make the smaller elements to it's left
-#       and the greater elements to the right.
+# Keywords: 1. Recursive  2. Pivot  3. Border
+# Idea: [ Smaller elements, Pivot, Greater elements ]
+# Func 1: Apply Recursive 
+# Func 2: Perform the compare and swap
 
-# Start from low and end at high
+# Start: low  End: high
 def quicksort(arr, low, high):
-    # if there is at least 2 elements in the array
+    # More than 2 elements
     if low < high:
         # pi as Pivot
         pi = partition(arr, low, high)
-        # Do quicksort on both smaller array and greater array
+        # Recursively apply on the sub-array
         quicksort(arr, low, pivot)
         quicksort(arr, pi + 1, high)
     return arr
@@ -19,12 +21,12 @@ def quicksort(arr, low, high):
 def partition(arr, low, high):
     # Set the first element to be pivot
     pi = low
-    # Create a border element start from the next element of the pivot
+    # Make a border element next to pivot
     border = low
     for i in range(low, high):
         if arr[i] <= arr[pi]:
             # Swap the smaller element with the border
             arr[i], arr[border] = arr[border], arr[i]
             border += 1
-    # Swap pivot with border
+    # Finally swap pivot with border
     arr[pi], arr[border] = arr[border], arr[pi]
