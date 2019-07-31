@@ -8,8 +8,8 @@
 # Because nums[0] + nums[1] = 2 + 7 = 9,
 # return [0, 1].
 
-
-# ========= 1
+# Idea: Double for loop, iterate the array, check every pair
+# Solution 1:
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         for i in range(len(nums)):
@@ -17,8 +17,8 @@ class Solution:
                 if nums[i] + nums[k] == target:
                     return [i, k]
 
-
-# ========= 2
+# Idea: Dictionary with .get() method
+# Solution 2:
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         _dict = {}
