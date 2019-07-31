@@ -14,6 +14,11 @@
 #         self.val = x
 #         self.next = None
 
+# Solution 1: 
+# [I]. Convert linked list to array
+# [II]. Set each element in right format and add them together
+# [III]. Combine the two sum and convert it back to array
+# [IV]. Reverse the array and make it back to linked list
 
 class Solution:
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
@@ -43,3 +48,33 @@ class Solution:
         for i in range(len(snum)):
             fn.append(fnum[len(snum)-1-i])
         return fn
+    
+    
+# Solution 2: Recursive
+# Define a function: 2 linked list, carry(1 or 0), rootNode(store the head), 
+# currNode(do iteration over the list) 
+
+class Solution:
+    def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
+        return addTwoNodes(l1, l2, 0, None, None)
+
+    def addTwoNodes(self, l1, l2, carry, rootNode, currNode):
+        if l1 or l2 or carry != 0:
+            # Add nodes if they exists
+            sum = (l1.val if l1 else 0) + (l2.val if l2 else 0)
+
+            # if current node exists
+            if currNode:
+                # Assign single digit to next node
+                currNode.next = ListNode(sum % 10)
+                # Swap current node with the next node
+                currNode = currNode.next
+
+            else:
+                currNode = ListNode(sum % 10)
+                # Reserve the head node
+                rootNode = currNode
+            return self.addTwoNodes(l1.next if l1 else None, l2.next if l2 else None,
+            (sum // 10), rootNode, currNode)
+        else:
+            return rootNode
