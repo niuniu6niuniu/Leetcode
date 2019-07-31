@@ -5,7 +5,8 @@
 # Output: 3
 # Explanation: The answer is "abc", with the length of 3.
 
-
+# Idea: 1. Get all the non-repeated sub-string
+#       2. Return the substirng with max length using "key"
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
 
@@ -20,6 +21,7 @@ class Solution:
                         break
                     else:
                         strList.append(s[p:q+1])
-
+                        
+            # Print out the string with max length 
             maxList = max(strList, key=len)
             return(len(maxList))
