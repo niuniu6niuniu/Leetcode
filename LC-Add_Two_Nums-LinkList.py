@@ -33,6 +33,7 @@ class Solution:
             n1 += num1[i]*10**i
         for k in range(len(num2)):
             n2 += num2[k]*10**k
+            
         n3 = n1 + n2
         snum = str(n3)
         fnum = []
