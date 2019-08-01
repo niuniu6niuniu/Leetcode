@@ -6,6 +6,10 @@ class Node:
         self.data = data
         self.next = next
 
+# Idea: Use 2 pointers(head, body) to do iteration, move forward
+#       Start from the head, body as head.next, use a additional pointer Tail to store body.next
+#       In each iteration, update the head and body pointer, to move forward
+
     def LinkedList_Reverse(root):
         # Set root as head
         head = root
