@@ -14,7 +14,7 @@
 #         self.val = x
 #         self.next = None
 
-# Solution 1: 
+# Solution 1: ------ List ------
 # [I]. Convert linked list to array
 # [II]. Set each element in right format and add them together
 # [III]. Combine the two sum and convert it back to array
@@ -50,7 +50,7 @@ class Solution:
         return fn
     
     
-# Solution 2: Recursive
+# Solution 2: ------ Recursive -------
 # Define a function: 2 linked list, carry(1 or 0), rootNode(store the head), 
 # currNode(do iteration over the list) 
 
