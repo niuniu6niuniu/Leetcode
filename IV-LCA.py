@@ -8,6 +8,8 @@ class TreeNode:
         self.left = None
         self.right = None
 
+# Idea: ------ Recursive ------
+# Recursively Top-down search for node A and node B
 class Solution():
     def LCA(self, root, A, B):
         # if empty tree or A is root or B is root
