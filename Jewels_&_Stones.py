@@ -16,23 +16,26 @@
 
 class Solution:
     def numJewelsInStones(self, J: str, S: str) -> int:
-        # Solution 1: 2 For loops
-        # To store the number of jewels
-        #count = 0
+        
+        # Solution 1: ------ Iteration ------
+        # Idea: Cross check 2 list, if found, add 1 to count
+        count = 0
         # Iterate through J and S
-        #for j in J:
-        #    for i in range(len(S)):
-        #        if S[i] == j:
-        #            count += 1
-        #return count
+        for j in J:
+            for i in range(len(S)):
+                if S[i] == j:
+                    count += 1
+        return count
 
-        # Solution 2: replace
-        #lenFull = len(S)
-        #for j in J:
-        #    S = S.replace(j, '')
-        #return lenFull - len(S)
+        # Solution 2: ------ replace() ------
+        # Idea: Remove the jewels from stone list, check length
+        lenFull = len(S)
+        for j in J:
+            S = S.replace(j, '')
+        return lenFull - len(S)
 
-        # Solution 3: count
+        # Solution 3: ------ count ------
+        # Idea: Use string.count() directly count jewels in stone list
         count = 0
         for j in J:
             count += S.count(j)
