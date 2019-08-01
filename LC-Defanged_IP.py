@@ -11,14 +11,18 @@
 
 class Solution:
     def defangIPaddr(self, address: str) -> str:
-        # Solution 1: Split
+        
+        # Solution 1: ------ SPLIT ------
+        # Idea: 1. Split the str with "."
+                2. Concatenate the sub-str with "[.]"
         newAdd = address.split('.')
         newStr = ''
         for num in newAdd:
             newStr += num + '[.]'
         return newStr[:len(newStr)-3]
 
-        # Solution 2: Replace
+        # Solution 2: ------ REPLACE ------
+        # Idea: Rplace the "." with "[.]"
         # return address.replace(".", "[.]")
 
     new = defangIPaddr(None, '1.1.1.1')
