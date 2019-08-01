@@ -9,7 +9,10 @@ class TreeNode:
         self.right = None
 
 # Idea: ------ Recursive ------
-# Recursively Top-down search for node A and node B
+# Recursively Top-down search the sub-left tree and sub-right tree for node A and node B
+# If find A and B in different sub-tree, then root is the LCA
+# If find A and B in the same sub-tree, then the parent of the node found first is the LCA
+
 class Solution():
     def LCA(self, root, A, B):
         # if empty tree or A is root or B is root
