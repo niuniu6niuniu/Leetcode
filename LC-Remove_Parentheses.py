@@ -32,7 +32,12 @@
 
 class Solution:
     def removeOuterParentheses(self, S: str) -> str:
-        # Solution 1: count
+        
+        # Solution 1: ------ count ------
+        # Idea: Recursively append "(" and ")" in reserved list
+        #       1. If "(", add 1
+        #       2. If ")", minus 1
+        #       3. Append condition: count > 1, skip the outer "(" and ")"
         reserveList = []
         count = 0
         for index, item in enumerate(S):
@@ -44,7 +49,11 @@ class Solution:
                 count -= 1
         return "".join(reserveList)
 
-        # Solution 2: Stack
+        # Solution 2: ------ Stack ------
+        # Idea: Recursively add "(" and ")" to new string
+        #       1. Initiate empty stack, push first item in
+        #       2. If is "(" push in stack, if is ")" pop out
+        #       3. Add condition: only if stack is not empty, skip the outer items
         stack = []
         ans = ""
         for i in range(len(S)):
