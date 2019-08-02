@@ -20,22 +20,29 @@ class TreeNode:
 
 class Solution:
     def rangeSumBST(self, root: TreeNode, L: int, R: int) -> int:
-        # Solution 1: Stack Iterative
-        # count = 0
-        # stack = [root]
-        # while stack:
-        #     node = stack.pop()
-        #     # if node is not null
-        #     if node:
-        #         if L <= node.val <= R:
-        #             count += node.val
-        #         if node.val > L:
-        #             stack.append(node.left)
-        #         if node.val < R:
-        #             stack.append(node.right)
-        # return count
+        
+        # Solution 1: ------ Stack Iterative ------
+        # Idea: 1. push root in stack, check if L < root.val < R and then add root.val to count
+        #       2. if root.cal > L(root.val !< L), then push root.left in stack ready for check
+        #       3. if root.val < R(root.val !> R), then push root.right in stack ready for check
+        count = 0
+        stack = [root]
+        while stack:
+          node = stack.pop()
+          # if node is not null
+          if node:
+               if L <= node.val <= R:
+                    count += node.val
+               if node.val > L:
+                    stack.append(node.left)
+               if node.val < R:
+                    stack.append(node.right)
+        return count
 
-        # Solution 2: Depth First search
+        # Solution 2: ------ DFS, Recursive ------
+        # Idea: 1. Start from root, check if L < root.val < R then add root.val to count
+        #       2. If root.val > L(root.val !< L), check for root.left 
+        #       3. If root.val < R(root.val !> R), check for root.right
         def dfs(node):
             if node:
                 if L <= node.val <= R:
