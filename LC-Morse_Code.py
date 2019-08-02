@@ -29,21 +29,23 @@ class Solution:
         ".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-",
         "...-",".--","-..-","-.--","--.."]
 
-        # Solution 1: List
-        # newWords = []
-        # for word in words:
-        #     morseStr = ''
-        #     for i in range(len(word)):
-        #         morseStr += MORSE[ord(word[i]) - ord('a')]
-        #     newWords.append(morseStr)
-        #
-        # newStr = []
-        # for newWord in newWords:
-        #     if newWord not in newStr:
-        #         newStr.append(newWord)
-        # return(len(newStr))
+        # Solution 1 Keywords: ------ Ord(), List ------
+        # Idea: Use ord() to find the MORSE code of the letter, store the non-repeated string in list
+        newWords = []
+        for word in words:
+             morseStr = ''
+             for i in range(len(word)):
+                 morseStr += MORSE[ord(word[i]) - ord('a')]
+             newWords.append(morseStr)
+        
+         newStr = []
+         for newWord in newWords:
+             if newWord not in newStr:
+                 newStr.append(newWord)
+         return(len(newStr))
 
-        # Solution 2: Set
+        # Solution 2: ------ ord(), Set ------
+        # Idea: Use ord() to find the MORSE code, use set() to break symmetry
         Seen = {''.join(MORSE[ord(c) - ord('a')] for c in word)
                 for word in words}
         return len(Seen)
