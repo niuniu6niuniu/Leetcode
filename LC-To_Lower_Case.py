@@ -12,6 +12,8 @@
 # Input: "LOVELY"
 # Output: "lovely"
 
+# Keywords: ------ replace ------
+# Idea: check each item in the string, replace it with it's lower case
 class Solution:
     def toLowerCase(self, str: str) -> str:
         for word in str:
